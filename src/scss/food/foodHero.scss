@@ -1,0 +1,59 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.heroPage {
+  background: #f6fffa;
+
+  .hero {
+    padding-top: rem(250);
+
+    &__text {
+      h1 {
+        @include breakpoint-mobile(small) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 2rem;
+        }
+        @include breakpoint-desktop(medium) {
+          font-size: rem(54);
+        }
+
+        span {
+          margin-left: rem(16);
+        }
+
+        p {
+          font-weight: normal;
+          margin: 20px 0 40px;
+          line-height: 29px;
+          font-size: 1.1rem;
+          font-family: $ptFont;
+          width: 95%;
+          @include breakpoint-desktop(medium) {
+            width: 65%;
+          }
+        }
+      }
+
+      @include breakpoint-desktop(large) {
+        flex: 0 0 53%;
+      }
+    }
+
+    &__phone {
+      margin-top: rem(-80);
+    }
+
+    &__button--solid {
+      @include breakpoint-desktop(large) {
+        flex: 0 0 50%;
+        margin: 0;
+      }
+    }
+
+    &__button--link {
+      display: none;
+    }
+  }
+}

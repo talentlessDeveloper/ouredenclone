@@ -1,0 +1,99 @@
+@use "../utils/" as *;
+@use "variables" as *;
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $cerebriFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: $bgColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  line-height: 1.1;
+  font-family: $ptFont, sans-serif;
+  color: $black;
+}
+
+h1 {
+  font-size: rem(24);
+  margin-bottom: rem(2);
+  @include breakpoint-desktop(large) {
+    font-size: rem(28);
+  }
+}
+
+h2 {
+  font-size: rem(31);
+  margin-bottom: rem(24);
+
+  @include breakpoint-desktop(medium) {
+    font-size: rem(43);
+  }
+}
+
+p {
+  font-family: $cerebriFont, Times, serif;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  @include breakpoint-desktop(medium) {
+    width: 85%;
+  }
+}
+
+.container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  // @include breakpoint-desktop(large) {
+  //   padding: rem(26) 0;
+  //   max-width: 83%;
+  //   margin: 0 auto;
+  // }
+}
+
+.hide {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -1,0 +1,160 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.values {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+
+  .card--grid:not(:first-child) {
+    // remove promise button from other cards
+    .whyEdenValue__btn {
+      display: none;
+    }
+
+    .whyEdenValue__content {
+      padding-left: rem(20);
+      padding-right: rem(20);
+
+      @include breakpoint-desktop(large) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .card-2,
+  .card-5,
+  .card-8 {
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  .card-1,
+  .card-6 {
+    .whyEdenValue__content {
+      @include breakpoint-desktop(medium) {
+        flex-direction: row;
+
+        .whyEdenValue__img {
+          margin-top: rem(-80);
+        }
+      }
+    }
+  }
+
+  .card-2,
+  .card-3,
+  .card-9,
+  .card-10 {
+    @include breakpoint-mobile(medium) {
+      overflow-y: hidden;
+      height: rem(720);
+    }
+  }
+
+  .card-2 {
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .card-3 {
+    justify-content: flex-start;
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        padding-top: rem(12);
+      }
+    }
+  }
+
+  .card-4 {
+    .whyEdenValue__title {
+      h3 {
+        @include breakpoint-desktop(large) {
+          margin-top: rem(24);
+        }
+      }
+    }
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        padding: 0;
+        justify-content: flex-start;
+      }
+    }
+
+    p {
+      width: 92%;
+    }
+
+    span {
+      color: $edenGreen;
+    }
+  }
+
+  .card-5 {
+    @include breakpoint-desktop(large) {
+      justify-content: flex-start;
+    }
+
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .card-8 {
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        justify-content: center;
+
+        .whyEdenValue__title {
+          margin-top: rem(-18);
+          h3 {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .card-9,
+  .card-10 {
+    .whyEdenValue__content {
+      @include breakpoint-desktop(large) {
+        padding: 0;
+        justify-content: flex-start;
+
+        .whyEdenValue__title {
+          margin-top: rem(14);
+        }
+      }
+    }
+  }
+
+  .card-9 {
+    @include breakpoint-desktop(large) {
+      .whyEdenValue__content {
+        margin-bottom: auto;
+      }
+
+      video {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .card-10 {
+    @include breakpoint-desktop(large) {
+      .whyEdenValue__img {
+        margin-top: rem(200);
+      }
+    }
+  }
+}

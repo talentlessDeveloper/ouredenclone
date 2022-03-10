@@ -1,0 +1,57 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.press {
+  &__content {
+    padding: rem(64) 0 rem(130);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint-desktop(medium) {
+      padding: rem(100) 0 rem(150);
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: rem(45);
+    h3 {
+      font-size: 1.65rem;
+
+      @include breakpoint-desktop(medium) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__link {
+    display: grid;
+    grid-template-columns: repeat(2, rem(110));
+    gap: rem(35) rem(90);
+
+    @include breakpoint-desktop(medium) {
+      grid-template-columns: repeat(4, 1fr);
+
+      a:nth-child(2) {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      a:nth-child(3) {
+        grid-row: 1;
+        grid-column: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      height: rem(30);
+
+      @include breakpoint-desktop(medium) {
+        height: rem(40);
+      }
+    }
+  }
+}

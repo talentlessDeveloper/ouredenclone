@@ -1,0 +1,338 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.foodPlan {
+  background-color: #f7fdff;
+  background-image: url("https://res.cloudinary.com/eden-life-inc/image/upload/v1611834564/eden-website-v2/bg-8_d0hgzi.svg");
+  background-repeat: no-repeat;
+  background-size: 15%;
+  background-position: bottom 3% right 10%;
+
+  @include breakpoint-desktop(large) {
+    background-position: bottom 15% right 12%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(64) 0 rem(76);
+    gap: 3rem;
+
+    @include breakpoint-desktop(large) {
+      flex-direction: row;
+      padding: rem(170) 0;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @include breakpoint-desktop(large) {
+      text-align: left;
+    }
+    h3 {
+      font-size: 1.75rem;
+      line-height: rem(36);
+      margin-bottom: rem(12);
+
+      @include breakpoint-desktop(large) {
+        font-size: 2.95rem;
+        margin-bottom: rem(48);
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: rem(24);
+      width: 60%;
+      margin: 0 auto;
+      @include breakpoint-desktop(large) {
+        margin: 0;
+        font-size: 1.2rem;
+        line-height: 29px;
+        width: 65%;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-top: rem(48);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include breakpoint-desktop(large) {
+        flex-direction: row;
+      }
+    }
+    .icon {
+      border-radius: rem(8);
+      padding: rem(8) rem(12);
+      margin-bottom: rem(24);
+      line-height: rem(31);
+      font-size: 1.75rem;
+
+      @include breakpoint-desktop(large) {
+        margin-bottom: 0;
+      }
+    }
+
+    .icon--one {
+      background-color: rgba(212, 219, 250, 0.6);
+    }
+
+    .icon--two {
+      background: #ebfaff;
+    }
+
+    .icon--three {
+      background-color: rgb(255, 235, 222);
+    }
+
+    .icon--text {
+      @include breakpoint-desktop(large) {
+        margin-left: rem(24);
+      }
+      h5 {
+        margin: rem(8);
+        font-size: 1.3rem;
+        line-height: rem(24);
+
+        @include breakpoint-desktop(large) {
+          margin: 0 0 4px;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: rem(22);
+        width: 100%;
+        color: $black;
+      }
+    }
+  }
+
+  &__price {
+    min-height: rem(555);
+    width: 100%;
+    flex: 0 0 50%;
+    border: 1px solid #e4e8e6;
+    border-radius: rem(8);
+    background-color: #fff;
+    padding: 0 20px;
+
+    @include breakpoint-desktop(large) {
+      padding: 0 rem(52);
+    }
+    .price-lists {
+      margin-top: 0;
+      list-style-type: none;
+      padding: rem(30) 0 rem(20);
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      border-bottom: 1px solid #e4e8e6;
+      margin-bottom: rem(24);
+
+      li span {
+        font-size: 0.9rem;
+        color: #93a29b;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.45s ease-in;
+
+        @include breakpoint-desktop(large) {
+          font-size: 1rem;
+        }
+
+        &.active {
+          &::after {
+            content: "";
+            background: #04a84f;
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50px;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          color: $edenGreen;
+        }
+
+        /* Cleaning span active*/
+        @include breakpoint-mobile(small) {
+          &.cleaning.active {
+            &::after {
+              bottom: -28px;
+            }
+          }
+        }
+
+        &:hover {
+          color: $edenGreen;
+        }
+      }
+    }
+  }
+
+  &__price--daily,
+  &__price--weekly,
+  &__price--other {
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: transform 0.45s ease-in;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+    }
+  }
+
+  &__item {
+    p {
+      line-height: 21px;
+      font-size: 0.9rem;
+      margin-top: rem(24);
+      margin-bottom: rem(8);
+      font-weight: bold;
+      color: $black;
+
+      span:nth-child(2) {
+        display: none;
+      }
+
+      @include breakpoint-desktop(large) {
+        font-size: 1rem;
+
+        display: flex;
+        justify-content: space-between;
+        span:nth-child(2) {
+          display: block;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .p2 {
+      @include breakpoint-desktop(large) {
+        margin-top: rem(48);
+      }
+    }
+
+    .btn--group {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      .btn-freq {
+        background-color: #fff;
+        color: #93a29b;
+        font-size: 0.875rem;
+        line-height: 22px;
+        padding: rem(16);
+
+        border: 1px solid #e4e8e6;
+        cursor: pointer;
+        transition: all 0.45s ease-in;
+
+        &:first-child {
+          border-radius: 8px 0 0 8px;
+        }
+        &:nth-child(3) {
+          border-radius: 0 8px 8px 0;
+        }
+
+        &.active {
+          border: 2px solid $edenGreen;
+          color: $black;
+        }
+        &:hover {
+          border: 2px solid $edenGreen;
+        }
+
+        @include breakpoint-desktop(large) {
+          flex: 0 0 33.3%;
+          padding: rem(15);
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .btn {
+      color: #21312a;
+      background-color: #e4e8e6;
+      padding: rem(16);
+      border: 1px solid #e4e8e6;
+      cursor: pointer;
+
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+
+    input {
+      padding: rem(14) rem(23);
+      border: 1px solid #e4e8e6;
+      font-size: 1rem;
+      text-align: center;
+      width: 100%;
+      outline: 0;
+    }
+
+    .btn--minus {
+      border-radius: rem(8) 0 0 rem(8);
+    }
+    .btn--plus {
+      border-radius: 0 rem(8) rem(8) 0;
+    }
+  }
+
+  &__bottom {
+    margin: rem(34) 0;
+    text-align: right;
+
+    @include breakpoint-desktop(large) {
+      margin: 60px 0;
+    }
+
+    h5 {
+      font-size: 1.125rem;
+      line-height: 29px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      @include breakpoint-desktop(large) {
+        font-size: 1.75rem;
+      }
+      span {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 24px;
+
+        @include breakpoint-desktop(large) {
+          font-size: 1.25rem;
+        }
+        &:nth-child(2) {
+          margin: 0 8px;
+        }
+      }
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: #57645e;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+.companyCustomer {
+  position: relative;
+  padding-bottom: 70px;
+  .customer-perk {
+    position: absolute;
+    left: 50%;
+    bottom: 54px;
+    transform: translateX(-50%);
+    line-height: 23px;
+    font-size: 1.125rem;
+    background-color: #03a84e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    width: 259px;
+    padding: 20px 32px;
+    cursor: pointer;
+
+    &:hover {
+      background: $edenDeep;
+    }
+  }
+}

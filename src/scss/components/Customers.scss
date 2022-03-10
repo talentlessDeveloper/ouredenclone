@@ -1,0 +1,124 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.customers {
+  &__content {
+    padding: rem(64) 0;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(85);
+    @include breakpoint-desktop(medium) {
+      flex-direction: row;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  &__title--image {
+    margin-top: rem(40);
+    display: grid;
+    grid-template-columns: repeat(3, rem(88));
+    gap: rem(20);
+
+    @include breakpoint-desktop(medium) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: rem(40) rem(60);
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(20);
+
+    @include breakpoint-mobile(medium) {
+      overflow: auto;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+    }
+  }
+}
+
+.card {
+  background: #fff;
+  width: rem(310);
+  padding: rem(16) rem(19);
+  border: 1px solid rgba(228, 232, 230, 0.2);
+  border-radius: rem(10);
+  height: fit-content;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+
+  @include breakpoint-desktop(medium) {
+    width: rem(375);
+  }
+
+  &:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    @include breakpoint-desktop(medium) {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+
+  &:nth-child(5) {
+    @include breakpoint-desktop(medium) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(17);
+  }
+
+  &__img {
+    width: rem(70);
+    height: rem(70);
+    margin-right: rem(10);
+
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    margin-bottom: rem(4);
+    font-size: rem(17);
+  }
+
+  &__username {
+    margin: 0;
+    color: $edenGreen;
+  }
+
+  &__description {
+    color: #57645e;
+    font-size: rem(14);
+    line-height: 21px;
+    margin: 0;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}

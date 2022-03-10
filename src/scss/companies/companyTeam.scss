@@ -1,0 +1,83 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.companyTeam {
+  &__content {
+    padding: rem(100) 0 rem(80);
+  }
+
+  &__title {
+    h3 {
+      font-size: 2.25rem;
+      line-height: rem(47);
+      margin-bottom: rem(32);
+      color: #000;
+      @include breakpoint-mobile(small) {
+        text-align: center;
+        font-size: 1.75rem;
+        margin-bottom: rem(28);
+      }
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 29px;
+      margin-bottom: rem(80);
+      width: 40%;
+      @include breakpoint-mobile(small) {
+        text-align: center;
+        font-size: 1rem;
+        line-height: rem(24);
+        width: 100%;
+      }
+    }
+
+    @include breakpoint-mobile(small) {
+      text-align: center;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint-mobile(small) {
+      flex-direction: column;
+    }
+  }
+
+  &__cards-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 28%;
+    padding: 0 20px;
+    h3 {
+      background-color: #ffe8e5;
+      border-radius: 16px;
+      padding: rem(6) rem(12);
+      line-height: rem(52);
+      font-size: 2.625rem;
+      margin-bottom: 0;
+    }
+
+    &.value h3 {
+      background-color: rgba(3, 168, 78, 0.12);
+    }
+
+    h5 {
+      margin: rem(32) 0 rem(12);
+      font-size: 1.25rem;
+      line-height: rem(26);
+      color: #21312a;
+    }
+
+    p {
+      line-height: rem(29);
+      font-size: 1.125rem;
+      color: #57645e;
+      margin-bottom: rem(28);
+      text-align: center;
+    }
+  }
+}

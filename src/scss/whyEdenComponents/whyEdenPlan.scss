@@ -1,0 +1,234 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.whyEdenPlan {
+  background: #f9fbfa;
+  padding-bottom: rem(200);
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include breakpoint-desktop(large) {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    h1 {
+      font-size: 2.25rem;
+      line-height: 1.5;
+
+      @include breakpoint-desktop(large) {
+        font-size: rem(64);
+      }
+    }
+
+    span {
+      color: $edenGreen;
+    }
+
+    p {
+      color: $black;
+      margin-top: 24px;
+      font-size: 17px;
+
+      @include breakpoint-desktop(large) {
+        font-size: rem(19);
+      }
+    }
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    transition: all 0.35s ease-in;
+
+    @include breakpoint-desktop(large) {
+      width: 70%;
+    }
+
+    .selectPlan {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      list-style-type: none;
+      margin: rem(60) 0 rem(30);
+      padding: 0;
+    }
+
+    li {
+      flex: 0 0 50%;
+      text-align: center;
+      color: #4b6358;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-bottom: 2px solid #eee;
+      padding-bottom: rem(4);
+      transition: all 0.35s ease-in;
+      &.active {
+        border-bottom: 2px solid $edenGreen;
+        color: #0f241b;
+      }
+
+      &:hover {
+        border-bottom: 2px solid $edenGreen;
+      }
+
+      @include breakpoint-desktop(large) {
+        font-size: rem(24);
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    &.active2 {
+      opacity: 0.8;
+      visibility: visible;
+      transform: translateY(1px);
+    }
+
+    label {
+      font-size: 0.875rem;
+      line-height: 18px;
+      color: #93a29b;
+      text-align: left;
+    }
+
+    input,
+    textarea,
+    select {
+      &::placeholder {
+        color: #acb6b1;
+      }
+      color: #93a29b;
+      background-color: #fff;
+      border: 1px solid #c9d0cd;
+      border-radius: 4px;
+      width: 100%;
+      padding: 14px 16px;
+      margin-top: 4px;
+      margin-bottom: rem(30);
+      outline: 0;
+      font-size: 0.9rem;
+      font-family: "Cerebri Sans";
+    }
+
+    textarea {
+      height: rem(140);
+    }
+
+    .error {
+      width: 13.375rem;
+      border: 1px solid pink;
+      border-radius: 0.5rem;
+      background-color: #fff;
+      position: absolute;
+      z-index: 1;
+      padding: 11px;
+      top: 59px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+      p {
+        font-size: rem(12);
+      }
+    }
+
+    .custom-select {
+      position: relative;
+
+      &.rotate {
+        svg {
+          transform: translate(-50%, -50%) rotate(180deg);
+        }
+      }
+
+      span {
+        display: block;
+        background-color: #fff;
+        position: absolute;
+        top: 6px;
+        right: 1px;
+        height: 52%;
+        width: 2rem;
+        pointer-events: none;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 0.95rem;
+          color: $black;
+          transform: translate(-50%, -50%) rotate(0deg);
+          transition: transform 0.35s ease;
+        }
+      }
+    }
+  }
+
+  .plan-btn {
+    background: $edenGreen;
+    color: #fff;
+    font-size: rem(18);
+    margin-top: rem(18);
+    margin-bottom: rem(30);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $edenDeep;
+    }
+  }
+
+  .share--message {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-desktop(large) {
+      flex-direction: column;
+      align-items: flex-start;
+      position: fixed;
+      left: 5%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    p {
+      margin: 0 1.5rem 0 0;
+
+      @include breakpoint-desktop(large) {
+        margin: 0 1.5rem 1rem 0;
+      }
+    }
+
+    .share--icons {
+      @include breakpoint-desktop(large) {
+        flex-direction: column;
+        .share--icon {
+          margin: 0 0 rem(10);
+        }
+      }
+    }
+  }
+}

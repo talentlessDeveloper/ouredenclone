@@ -1,0 +1,216 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.foodMenu {
+  background: #ffffff;
+  &__content {
+    padding: rem(80) 0;
+  }
+
+  &__title {
+    text-align: center;
+    h3 {
+      font-size: 1.85rem;
+      line-height: 36px;
+      margin-bottom: 12px;
+
+      @include breakpoint-desktop(large) {
+        font-size: 2.4rem;
+      }
+    }
+
+    p {
+      line-height: 24px;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #e4e8e6;
+      top: rem(80);
+    }
+  }
+
+  &__type {
+    position: relative;
+    padding-bottom: rem(16);
+    overflow: hidden;
+    width: 85%;
+    margin: 0 auto;
+
+    @include breakpoint-desktop(large) {
+      width: 100%;
+    }
+
+    .foodtypes--container {
+      display: flex;
+
+      transform: translateX(0);
+      transition: transform 0.45s ease-in;
+
+      @include breakpoint-desktop(large) {
+        gap: rem(88);
+      }
+      & > div {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        padding: rem(12);
+
+        @include breakpoint-desktop(large) {
+          flex: 1;
+          justify-content: space-between;
+        }
+      }
+    }
+    p {
+      transition: all 0.4s ease-in-out;
+      margin-bottom: rem(6);
+      margin-top: rem(12);
+      white-space: nowrap;
+      text-transform: capitalize;
+      font-size: 1rem;
+      font-family: $ptFont;
+      position: relative;
+      color: rgb(147, 162, 155);
+      cursor: pointer;
+
+      &.active {
+        color: $black;
+        &::after {
+          content: "";
+          background: #04a84f;
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50px;
+          bottom: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .type-item {
+    perspective: 300px;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.45s ease-in;
+  }
+
+  .typearrowBtn {
+    background: transparent;
+    position: absolute;
+    top: 12px;
+    border: 1px solid #04a84f;
+    border-radius: 3px;
+    padding: 12px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.2rem;
+      color: #04a84f;
+    }
+  }
+
+  .typearrowLeft {
+    left: 0;
+  }
+
+  .typearrowRight {
+    right: 0;
+  }
+  .typearrowRight.mobile {
+    @include breakpoint-desktop(large) {
+      display: none;
+    }
+  }
+  .typearrowRight.desktop {
+    @include breakpoint-mobile(small) {
+      display: none;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 16px;
+    padding-bottom: 0;
+    margin-top: 60px;
+    margin-bottom: rem(40);
+
+    @include breakpoint-desktop(large) {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: rem(70);
+    }
+
+    figure {
+      margin: 0;
+
+      p {
+        text-align: center;
+        line-height: 24px;
+        font-size: 1rem;
+        font-weight: 300;
+        color: #21312a;
+        text-transform: capitalize;
+
+        @include breakpoint-desktop(large) {
+          text-align: center;
+          line-height: 29px;
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+
+  &__list-img {
+    height: 200px;
+    width: 150px;
+    padding: 30px 14px;
+    border-radius: 8px;
+
+    @include breakpoint-desktop(large) {
+      padding: 10px;
+
+      width: 400px;
+      height: 350px;
+    }
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .cta-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__cta {
+    font-size: 1.125rem;
+    line-height: 29px;
+    background-color: #03a84e;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $edenDeep;
+    }
+  }
+}

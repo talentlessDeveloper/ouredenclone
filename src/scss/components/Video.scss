@@ -1,0 +1,41 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.video {
+  @include breakpoint-desktop(medium) {
+    padding-bottom: rem(75);
+  }
+  &__content {
+    padding: rem(68) 0;
+  }
+
+  &__title {
+    margin-bottom: rem(50);
+
+    h2 {
+      margin-bottom: 0;
+      text-align: center;
+
+      @include breakpoint-desktop(medium) {
+        text-align: left;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: rem(280);
+
+    @include breakpoint-desktop(medium) {
+      height: rem(600);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

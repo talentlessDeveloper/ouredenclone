@@ -1,0 +1,152 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.hero {
+  font-family: $cerebriFont, Times, serif;
+  color: $black;
+  padding: rem(200) 0 rem(170);
+  @include breakpoint-desktop(medium) {
+    padding: rem(120) 0 rem(53);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include breakpoint-desktop(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__text {
+    @include breakpoint-desktop(medium) {
+      flex: 0 0 45%;
+    }
+
+    font-family: $ptFont, sans-serif;
+
+    h1 {
+      font-family: $ptFont, sans-serif;
+      font-size: rem(36);
+      line-height: 1.25;
+
+      @include breakpoint-desktop(medium) {
+        font-size: rem(58);
+      }
+
+      // span {
+      //   display: inline-block;
+      // }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: rem(20);
+      @include breakpoint-desktop(medium) {
+        list-style-type: disc;
+      }
+    }
+
+    li {
+      margin: rem(10) 0;
+      font-size: rem(18);
+    }
+
+    p {
+      font-size: rem(16);
+      width: 95%;
+      margin: rem(22) 0;
+      line-height: 1.4;
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    font-family: $cerebriFont, Times, serif;
+
+    @include breakpoint-desktop(medium) {
+      flex-direction: row;
+    }
+    &--solid {
+      background-color: $edenGreen;
+      color: #fff;
+      width: 90%;
+      margin: 0 auto;
+      font-size: rem(18);
+      font-family: inherit;
+      text-align: center;
+      border: none;
+      border-radius: rem(4);
+      padding: rem(20) rem(32);
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+
+      @include breakpoint-desktop(medium) {
+        flex: 1;
+      }
+
+      &:hover {
+        background-color: $edenDeep;
+      }
+    }
+
+    &--link {
+      margin-top: rem(30);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      font-size: rem(20);
+      color: $edenGreen;
+
+      margin: rem(32) auto 0;
+      cursor: pointer;
+
+      @include breakpoint-desktop(medium) {
+        flex: 1;
+        margin-top: 0;
+        margin-left: rem(14);
+        width: 50%;
+      }
+
+      .hero__play {
+        fill: $edenGreen;
+        background-color: $edenLight;
+        margin-right: rem(15);
+      }
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include breakpoint-desktop(medium) {
+      display: flex;
+      justify-content: center;
+      flex: 0 0 50%;
+      position: relative;
+    }
+
+    // img {
+    //   max-width: 100%;
+    //   height: auto;
+    // }
+  }
+
+  &__phone {
+    z-index: 2;
+  }
+
+  &__laundry {
+    position: absolute;
+    bottom: 10%;
+    z-index: 1;
+  }
+}

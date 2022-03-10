@@ -1,0 +1,119 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.contactEden {
+  background: #fff;
+  padding-top: 180px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #21312a;
+    margin-bottom: 30px;
+    h1 {
+      line-height: 47px;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 24px;
+      line-height: 29px;
+      font-size: 1.125rem;
+      font-weight: 300;
+
+      @include breakpoint-desktop(medium) {
+        width: 55%;
+      }
+    }
+  }
+
+  &__inquiries {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint-desktop(medium) {
+      flex-direction: row;
+      margin: 0 auto;
+      width: 83%;
+      justify-content: space-between;
+      gap: 3px;
+    }
+  }
+  .press {
+    h3 {
+      background-color: #ffebde;
+    }
+  }
+
+  .partner {
+    h3 {
+      background-color: rgba(212, 219, 250, 0.6);
+    }
+  }
+
+  .support {
+    h3 {
+      background-color: #ffe8e5;
+    }
+  }
+
+  &__inquiries-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 33%;
+    padding: 50px 28px 40px;
+    transition: all 0.45s ease-in;
+    &:hover {
+      box-shadow: 0 20px 50px rgba(229, 233, 252, 0.6);
+    }
+
+    h3 {
+      border-radius: 16px;
+      padding: 6px 12px;
+      line-height: 52px;
+      font-size: 2.625rem;
+      margin: 0;
+    }
+
+    h5 {
+      margin: 32px 0 12px;
+      font-size: 1.25rem;
+      line-height: 26px;
+      font-weight: 700;
+      color: #21312a;
+    }
+
+    p {
+      text-align: center;
+      line-height: 29px;
+      font-size: 1.125rem;
+      color: #57645e;
+      font-weight: 300;
+      margin: 0 0 28px;
+    }
+
+    a {
+      font-size: 1.125rem;
+      color: #03a84e;
+      cursor: pointer;
+      line-height: 29px;
+      margin-top: auto;
+    }
+
+    span {
+      color: #03a84e;
+      cursor: pointer;
+    }
+  }
+}

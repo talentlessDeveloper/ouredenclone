@@ -1,0 +1,507 @@
+@use "../utils/" as *;
+@use "../globals/variables.scss" as *;
+
+.description {
+  background: #fffcfa;
+
+  &__content {
+    padding: 60px 0 98px;
+  }
+
+  &__title {
+    margin-bottom: rem(60);
+
+    h3 {
+      font-size: 1.75rem;
+      line-height: rem(36);
+      text-align: center;
+      @include breakpoint-desktop(large) {
+        font-size: 2.625rem;
+        line-height: 55px;
+        text-align: left;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include breakpoint-desktop(medium) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__video-item {
+    height: rem(280);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    @include breakpoint-desktop(medium) {
+      flex: 0 0 50%;
+      align-items: center;
+      align-self: flex-start;
+      margin-top: -0.875rem;
+      height: rem(470);
+    }
+
+    &.visible {
+      .replay-button {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    video {
+      height: 100%;
+    }
+
+    .replay-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: $edenGreen;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      font-family: inherit;
+      margin-top: rem(14);
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.45s ease-in;
+
+      span {
+        margin-left: rem(10);
+      }
+    }
+  }
+
+  &__slider {
+    margin-top: rem(60);
+    width: 100%;
+    @include breakpoint-desktop(medium) {
+      flex: 0 0 50%;
+      display: flex;
+      margin-top: 0;
+    }
+  }
+
+  &__slider-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include breakpoint-desktop(medium) {
+      flex-direction: column;
+    }
+
+    svg {
+      font-size: 2.5rem;
+
+      margin-right: -4px;
+      width: 1.5rem;
+      height: 1.5rem;
+
+      @include breakpoint-desktop(medium) {
+        &:not(:nth-of-type(1)) {
+          margin-top: -6px;
+        }
+      }
+    }
+
+    svg:nth-of-type(1) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 1s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 1s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(2) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 10s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 10s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(3) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 24s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 24s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(4) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 30s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 30s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(5) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 40s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 40s ease-in forwards;
+        }
+      }
+    }
+
+    .dash {
+      width: 259px;
+      background: #e4e8e6;
+      height: 3px;
+      margin-right: -4px;
+
+      @include breakpoint-desktop(medium) {
+        height: 205px;
+        width: 3px;
+        margin-top: -6px;
+      }
+      span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: #61db98;
+
+        @include breakpoint-desktop(medium) {
+          width: 100%;
+          height: 0;
+        }
+      }
+    }
+
+    .dash-1 {
+      span {
+        animation: dash 9s 1s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 9s 1s ease-in forwards;
+        }
+      }
+    }
+
+    .dash-2 {
+      span {
+        animation: dash 10s 16s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 10s 16s ease-in forwards;
+        }
+      }
+    }
+
+    // company section
+    .dash-3 {
+      span {
+        animation: dash 11s 25s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 10s 16s ease-in forwards;
+        }
+      }
+    }
+    .dash-4 {
+      span {
+        animation: dash 12s 16s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 10s 16s ease-in forwards;
+        }
+      }
+    }
+  }
+
+  &__slider-text {
+    margin-top: 35px;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 58px;
+    gap: 58px;
+    margin-right: 40px;
+    margin-left: 35px;
+    // color: #21312a;
+
+    @include breakpoint-desktop(medium) {
+      flex-direction: column;
+      justify-content: unset;
+      gap: 20px;
+      overflow: hidden;
+      margin: 0 0 0 35px;
+      text-align: left;
+    }
+
+    .text {
+      flex: 0 0 100%;
+
+      transition: all 0.4s ease-in-out;
+
+      @include breakpoint-desktop(medium) {
+        flex: 0 0 20%;
+      }
+
+      h5,
+      p {
+        color: #c9d0cd;
+        text-align: center;
+        @include breakpoint-desktop(medium) {
+          text-align: left;
+        }
+      }
+
+      &.active {
+        h5,
+        p {
+          color: #21312a;
+        }
+      }
+    }
+
+    h5 {
+      line-height: 26px;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      @include breakpoint-desktop(medium) {
+        line-height: 31px;
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+    }
+
+    p {
+      line-height: 24px;
+      font-size: 1rem;
+      margin-bottom: 0;
+      width: 100%;
+      @include breakpoint-desktop(medium) {
+        line-height: 29px;
+        font-size: 1.125rem;
+        font-weight: 300;
+        margin-bottom: 56px;
+        width: 70%;
+      }
+    }
+  }
+
+  .btn {
+    @include breakpoint-mobile(small) {
+      display: none;
+    }
+    display: block;
+    line-height: 23px;
+    font-size: 1.125rem;
+    background-color: #03a84e;
+    color: #fff;
+    width: rem(184);
+    text-align: center;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    padding: 16px 32px;
+    margin-left: rem(48);
+  }
+
+  // company section
+  &.company {
+    background-color: #f6fffa;
+    @include breakpoint-mobile(small) {
+      background-image: url("https://res.cloudinary.com/eden-life-inc/image/upload/v1611834564/eden-website-v2/bg-8_d0hgzi.svg");
+      background-repeat: no-repeat;
+      background-size: 33%;
+      background-position: top 22% right 25%;
+    }
+
+    .description__video-item {
+      height: rem(380);
+      align-items: center;
+      overflow: hidden;
+      @include breakpoint-desktop(medium) {
+        height: rem(500);
+        align-items: flex-end;
+      }
+
+      img {
+        height: rem(380);
+        @include breakpoint-desktop(medium) {
+          height: rem(500);
+          margin-top: -12px;
+          margin-right: rem(50);
+        }
+      }
+    }
+
+    svg {
+      font-size: 1rem;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    svg:nth-of-type(1) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 1s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 1s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(2) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 5s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 5s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(3) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 10s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 10s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(4) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 15s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 15s ease-in forwards;
+        }
+      }
+    }
+    svg:nth-of-type(5) {
+      path {
+        fill: #e4e8e6;
+        animation: circle 2s 20s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: circleVertical 2s 20s ease-in forwards;
+        }
+      }
+    }
+
+    .dash {
+      width: rem(90);
+      @include breakpoint-desktop(medium) {
+        height: rem(90);
+        width: 3px;
+        margin-top: -4px;
+      }
+    }
+
+    .dash-1 {
+      span {
+        animation: dash 3s 1s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 3s 1s ease-in forwards;
+        }
+      }
+    }
+
+    .dash-2 {
+      span {
+        animation: dash 4s 5s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 4s 5s ease-in forwards;
+        }
+      }
+    }
+
+    // company section
+    .dash-3 {
+      span {
+        animation: dash 5s 10s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 5s 10s ease-in forwards;
+        }
+      }
+    }
+    .dash-4 {
+      span {
+        animation: dash 6s 12s ease-in forwards;
+        @include breakpoint-desktop(medium) {
+          animation: dashVertical 6s 12s ease-in forwards;
+        }
+      }
+    }
+
+    .text {
+      @include breakpoint-desktop(medium) {
+        flex: 0;
+      }
+    }
+
+    h5 {
+      @include breakpoint-desktop(medium) {
+        font-size: 1.65rem;
+        margin-bottom: rem(44);
+      }
+    }
+
+    .btn {
+      @include breakpoint-mobile(small) {
+        display: block;
+        margin: 11px auto 0;
+      }
+    }
+  }
+}
+
+@keyframes circle {
+  from {
+    fill: #e4e8e6;
+  }
+
+  to {
+    fill: $edenGreen;
+  }
+}
+
+@keyframes circleVertical {
+  from {
+    fill: #e4e8e6;
+  }
+
+  to {
+    fill: $edenGreen;
+  }
+}
+@keyframes dash {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes dashVertical {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes color {
+  from {
+    color: #c9d0cd;
+  }
+
+  to {
+    color: #21312a;
+  }
+}
