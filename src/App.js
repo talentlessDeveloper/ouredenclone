@@ -72,7 +72,7 @@ function App() {
             <ScrollToTop>
               <Routes>
                 <Route
-                  path="/"
+                  path="/ouredenlife-clone"
                   exact
                   element={
                     <Home

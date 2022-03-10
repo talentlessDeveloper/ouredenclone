@@ -9,7 +9,6 @@ import ServiceHover from "./ServiceHover";
 
 function Header({ debounceFn, handleIntercom }) {
   const { pathname } = useLocation();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [linkOpen, setLinkOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
@@ -82,7 +81,7 @@ function Header({ debounceFn, handleIntercom }) {
       }`}
     >
       <nav className="header__nav wrapper">
-        <Link to="/" className="header__logo">
+        <Link to="/ouredenlife-clone" className="header__logo">
           <img src={logo} alt="Eden" />
         </Link>
         <ul className="header__links hide-for-mobile">
