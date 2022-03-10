@@ -81,7 +81,7 @@ function Header({ debounceFn, handleIntercom }) {
       }`}
     >
       <nav className="header__nav wrapper">
-        <Link to="/ouredenlife-clone" className="header__logo">
+        <Link to="/" className="header__logo">
           <img src={logo} alt="Eden" />
         </Link>
         <ul className="header__links hide-for-mobile">

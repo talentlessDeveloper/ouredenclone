@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 import Footer from "./components/Footer";
@@ -72,7 +72,7 @@ function App() {
             <ScrollToTop>
               <Routes>
                 <Route
-                  path="/ouredenlife-clone"
+                  path="/"
                   exact
                   element={
                     <Home
